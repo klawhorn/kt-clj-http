@@ -7,8 +7,13 @@
             :url "https://www.eclipse.org/legal/epl-2.0/"}
   :dependencies [[org.clojure/clojure "1.10.1"]
                  [ring "1.9.2"]
-                 [compojure "1.6.2"]]
-  :ring {:handler kt-clj-http.core/app-routes
+                 [compojure "1.6.2"]
+                 [metosin/compojure-api "1.1.13"]
+                 [org.clojure/tools.logging "1.1.0"]
+                 [ring/ring-json "0.5.1"]
+                 [ring/ring-core "1.7.1"]
+                 [metosin/ring-http-response "0.9.2"]]
+  :ring {:handler kt-clj-http.handler/wrapped-app
          :auto-reload? true
          :auto-refresh false}
   :repl-options {:init-ns kt-clj-http.core})
