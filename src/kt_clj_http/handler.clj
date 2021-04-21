@@ -32,7 +32,6 @@
                   :request-cookies cookies
                   :request-headers headers})))
 
-;; add context for high level routing
 (defroutes app-routes
   (GET "/" request "Healthy")
   (route/resources "/")
