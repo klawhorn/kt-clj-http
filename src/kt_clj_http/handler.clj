@@ -7,7 +7,12 @@
             [ring.middleware.cookies :as mid.cookies]
             [ring.middleware.json :as mid.json]
             [ring.middleware.params :as mid.params]
-            [ring.util.http-response :as response]))
+            [ring.util.http-response :as response]
+            [clojure.java.jdbc :as jdbc]
+            [kt-clj-http.db :as db]))
+
+(defn query-db [query]
+  (jdbc/query db/db-spec query))
 
 (defn handle-put [request]
   (println "----------------------- processing put --------------------------")
@@ -31,7 +36,7 @@
 (defroutes app-routes
   (GET "/" request "Healthy")
   (route/resources "/")
-  (POST "/users/:path-param" request
+  (POST "/post-handler/:path-param" request
     (handle-post request))
   (route/resources "/post-handler")
   (PUT "/put-handler/:path-param" request

@@ -12,8 +12,12 @@
                  [org.clojure/tools.logging "1.1.0"]
                  [ring/ring-json "0.5.1"]
                  [ring/ring-core "1.7.1"]
-                 [metosin/ring-http-response "0.9.2"]]
+                 [metosin/ring-http-response "0.9.2"]
+                 [com.stuartsierra/component "1.0.0"]
+                 [org.clojure/java.jdbc "0.7.12"]
+                 [mysql/mysql-connector-java "5.1.25"]]
   :ring {:handler kt-clj-http.handler/wrapped-app
          :auto-reload? true
          :auto-refresh false}
-  :repl-options {:init-ns kt-clj-http.core})
+  :repl-options {:init-ns kt-clj-http.core}
+  :main kt-clj-http.core/main)
